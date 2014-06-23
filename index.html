@@ -36,14 +36,19 @@
     <hr>
 
     <h2>Results</h2>
-    {{#each roll in content}}
-      <div class="roll">
-        <span class="roll-number">{{roll.diceNumber}}</span>
-        <span class="roll-result" {{bind-attr style="roll.proportion"}}>{{roll.numberOfRolls}}</span>
-      </div>
+    {{#each content}}
+      {{render "roll_result" this}}
     {{else}}
       No results yet
     {{/each}}
+  </script>
+
+  <!-- Results Template -->
+  <script type="text/x-handlebars" id='roll_result'>
+    <div class="roll">
+      <span class="roll-number">{{diceNumber}}</span>
+      <span class="roll-result" {{bind-attr style="proportion"}}>{{numberOfRolls}}</span>
+    </div>
   </script>
 
 
